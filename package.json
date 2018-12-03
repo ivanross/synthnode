@@ -1,0 +1,16 @@
+{
+  "name": "ts-synthnode",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "test": "ts-node index.ts"
+  },
+  "author": "Ivan Rossi",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^7.0.1",
+    "typescript": "^3.2.1"
+  }
+}
