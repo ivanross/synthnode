@@ -1,67 +1,53 @@
-import { TimeVariant, TConst } from './time_function';
-
-export type WaveForm = "sine" | "triangle" | "sawtooth" | "square"
+import { AudioObject, toAudioObject } from './audio-object';
 
 export interface OscillatorProps {
     frequency: number,
-    phase?: TimeVariant | number,
-    amplitude?: TimeVariant | number,
-    waveForm?: WaveForm
+    phase?: AudioObject | number,
+    amplitude?: AudioObject | number
 }
 
-export class Oscillator implements TimeVariant {
-
-    frequency: number
-    amplitude: TimeVariant
-    phase: TimeVariant
-    waveForm: WaveForm
-
-    constructor({ frequency, phase = 0, amplitude = 1, waveForm = "sine" }: OscillatorProps) {
+class GenericOsc implements AudioObject {
+    protected frequency: number
+    protected amplitude: AudioObject
+    protected phase: AudioObject
+    constructor({ frequency, phase = 0, amplitude = 1 }: OscillatorProps) {
         this.frequency = frequency
-        this.waveForm = waveForm
-        this.amplitude = toTimeVariant(amplitude)
-        this.phase = toTimeVariant(phase)
+        this.amplitude = toAudioObject(amplitude)
+        this.phase = toAudioObject(phase)
     }
+    tf(_: number): number { throw new Error("Illegal tf call") }
+}
 
+export class Oscillator extends GenericOsc {
     tf(t: number): number {
-        switch (this.waveForm) {
-            case "sine": return wave_sine(t, this.amplitude, this.frequency, this.phase);
-            case "square": return wave_square(t, this.amplitude, this.frequency, this.phase);
-            case "sawtooth": return wave_sawtooth(t, this.amplitude, this.frequency, this.phase);
-            case "triangle": return wave_triangle(t, this.amplitude, this.frequency, this.phase);
-            default: throw new Error("wave form unknown: " + this.waveForm)
-        }
+        return this.amplitude.tf(t) * Math.sin(2 * Math.PI * t * this.frequency + this.phase.tf(t))
     }
 }
 
-
-function wave_sine(t: number, amp: TimeVariant, freq: number, phase: TimeVariant): number {
-    return amp.tf(t) * Math.sin(2 * Math.PI + t + freq + phase.tf(t))
+export class Square extends GenericOsc {
+    tf(t: number): number {
+        return this.amplitude.tf(t) * (Math.sin(2 * Math.PI * t * this.frequency + this.phase.tf(t)) > 0 ? 1 : -1)
+    }
 }
 
-function wave_square(t: number, amp: TimeVariant, freq: number, phase: TimeVariant) {
-    return amp.tf(t) * (Math.sin(2 * Math.PI + t + freq + phase.tf(t)) > 0 ? 1 : -1)
+export class Triangle extends GenericOsc {
+    tf(t: number): number {
+        let time = Math.asin(Math.sin(2 * Math.PI * this.frequency * t + this.phase.tf(t)))
+        time /= Math.PI / 2
+        return time * this.amplitude.tf(t)
+    }
 }
 
-function wave_triangle(t: number, amp: TimeVariant, freq: number, phase: TimeVariant
-) {
-    let time = Math.asin(Math.sin(2 * Math.PI * freq * t + phase.tf(t)))
-    time /= Math.PI / 2
-    return time * amp.tf(t)
+export class Sawtooth extends GenericOsc {
+    tf(t: number): number {
+        return - (2 * this.amplitude.tf(t) / Math.PI) * Math.atan(1 / Math.tan(t * Math.PI * this.frequency + Math.PI / 2 + this.phase.tf(t) / 2))
+    }
 }
 
-function wave_sawtooth(t: number, amp: TimeVariant, freq: number, phase: TimeVariant) {
-    return - (2 * amp.tf(t) / Math.PI) * Math.atan(1 / Math.tan(t * Math.PI * freq + Math.PI / 2 + phase.tf(t) / 2))
-}
-
-export class Noise implements TimeVariant {
-    amplitude: TimeVariant
-    constructor(amplitude: number | TimeVariant = 1) {
-        this.amplitude = toTimeVariant(amplitude)
+export class Noise implements AudioObject {
+    protected amplitude: AudioObject
+    constructor(amplitude: number | AudioObject = 1) {
+        this.amplitude = toAudioObject(amplitude)
     }
     tf(t: number): number { return this.amplitude.tf(t) * Math.random() * 2 - 1 }
-}
-
-function toTimeVariant(o: number | TimeVariant):TimeVariant {
-    return (<TimeVariant>o).tf ? <TimeVariant>o : new TConst(<number>o);
 }
