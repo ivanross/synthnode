@@ -2,17 +2,18 @@
   "name": "ts-synthnode",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "tsc": "tsc",
-    "test": "ts-node index.ts"
+    "build": "tsc",
+    "test": "mocha --reporter spec"
   },
   "author": "Ivan Rossi",
   "license": "ISC",
   "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.0.1",
     "ts-node": "^7.0.1",
-    "typescript": "^3.2.1",
-    "webpack": "^4.26.1",
-    "webpack-cli": "^3.1.2"
+    "typescript": "^3.3.3333"
   }
 }
