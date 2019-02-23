@@ -5,12 +5,15 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "test": "mocha --reporter spec"
+    "start": "tsc -w",
+    "build": "rm -rf dist/ && tsc",
+    "test": "mocha -r ts-node/register test/**/*.spec.ts"
   },
   "author": "Ivan Rossi",
   "license": "ISC",
   "devDependencies": {
+    "@types/chai": "^4.1.7",
+    "@types/mocha": "^5.2.6",
     "chai": "^4.2.0",
     "mocha": "^6.0.1",
     "ts-node": "^7.0.1",
