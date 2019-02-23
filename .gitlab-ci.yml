@@ -23,6 +23,6 @@ test:
   stage: test
   script:
     - npm run test
-  artifact:
-    path:
+  artifacts:
+    paths:
       - test.log
