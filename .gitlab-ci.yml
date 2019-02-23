@@ -22,7 +22,7 @@ build:
 test:
   stage: test
   script:
-    - npm run test
+    - npm run test 2>&1 | tee test.log
   artifacts:
     paths:
       - test.log
