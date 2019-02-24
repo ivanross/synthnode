@@ -16,6 +16,15 @@ export class Distortion implements AudioObject {
     this.threshold = toAudioObject(threshold);
     this.type = type;
   }
+  setSignal(signal: AudioObject) {
+    this.signal = signal;
+  }
+  setThreshold(threshold: number | AudioObject) {
+    this.threshold = toAudioObject(threshold);
+  }
+  setType(type: DistortionType) {
+    this.type = type;
+  }
   tf(t: number): number {
     const tr = this.threshold.tf(t);
     const s = this.signal.tf(t);

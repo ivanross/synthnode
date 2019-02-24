@@ -9,7 +9,7 @@ function play(osc: AudioObject) {
 }
 
 let o = new Oscillator({
-  type: 'square',
+  type: 'sine',
   frequency: 80,
   amplitude: new Oscillator({
     frequency: 2,
@@ -34,6 +34,6 @@ const d = new Distortion({
 
 play(d);
 setTimeout(() => {
-  // o.setFrequency(800);
-  console.log('freq changed');
+  d.setType('overflow');
+  console.log('distortion type changed');
 }, 2000);
