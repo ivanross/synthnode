@@ -10,10 +10,10 @@ export type OscillatorProps = {
 };
 
 export class Oscillator implements AudioObject {
-  protected frequency: number;
-  protected amplitude: AudioObject;
-  protected phase: AudioObject;
-  protected type: OscillatorType;
+  frequency: number;
+  amplitude: AudioObject;
+  phase: AudioObject;
+  type: OscillatorType;
   constructor({
     frequency,
     phase = 0,
@@ -25,6 +25,7 @@ export class Oscillator implements AudioObject {
     this.phase = toAudioObject(phase);
     this.type = type;
   }
+
   tf(t: number): number {
     switch (this.type) {
       case 'sine':
@@ -53,7 +54,7 @@ export class Oscillator implements AudioObject {
 }
 
 export class Noise implements AudioObject {
-  protected amplitude: AudioObject;
+  amplitude: AudioObject;
   constructor(amplitude: number | AudioObject = 1) {
     this.amplitude = toAudioObject(amplitude);
   }
