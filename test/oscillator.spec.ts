@@ -1,9 +1,9 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Oscillator, Noise } from '../dist';
+import { Oscillator } from '../dist';
 
 describe('oscillators', () => {
-  it('test oscillator properties', () => {
+  it('oscillator properties', () => {
     const osc = new Oscillator({ frequency: 1 });
     expect(osc).to.have.property('frequency');
     expect(osc).to.have.property('amplitude');
@@ -12,13 +12,17 @@ describe('oscillators', () => {
     expect(osc).to.have.property('tf');
   });
 
-  it('test oscillator modif', () => {});
-});
-
-describe('noise', () => {
-  it('test noise properties', () => {
-    const n = new Noise();
-    expect(n).to.have.property('amplitude');
-    expect(n).to.have.property('tf');
+  it('type changes', () => {
+    const osc = new Oscillator({ frequency: 1 });
+    osc.setType('sawthoot');
+    expect(() => osc.tf(0)).to.not.throw();
+    osc.setType('square');
+    expect(() => osc.tf(0)).to.not.throw();
+    osc.setType('triangle');
+    expect(() => osc.tf(0)).to.not.throw();
+    osc.setType('sine');
+    expect(() => osc.tf(0)).to.not.throw();
+    osc.setType('ciao' as any);
+    expect(() => osc.tf(0)).to.throw();
   });
 });

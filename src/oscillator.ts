@@ -1,5 +1,5 @@
 import { AudioObject, toAudioObject } from './audio-object';
-const { sin, PI, asin, atan, tan, random } = Math;
+const { sin, PI, asin, atan, tan } = Math;
 
 export type OscillatorType = 'sine' | 'square' | 'triangle' | 'sawthoot';
 export type OscillatorProps = {
@@ -62,18 +62,5 @@ export class Oscillator implements AudioObject {
       default:
         throw new Error('Oscillator type not recognized');
     }
-  }
-}
-
-export class Noise implements AudioObject {
-  private amplitude: AudioObject;
-  constructor(amplitude: number | AudioObject = 1) {
-    this.amplitude = toAudioObject(amplitude);
-  }
-  setAmplitude(value: number) {
-    this.amplitude = toAudioObject(value);
-  }
-  tf(t: number): number {
-    return this.amplitude.tf(t) * random() * 2 - 1;
   }
 }
