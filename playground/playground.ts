@@ -1,7 +1,7 @@
 /// <reference path="playground.d.ts" />
 const Generator = require('audio-generator');
 const Speaker = require('audio-speaker');
-import { AudioObject, Oscillator } from '../src';
+import { AudioObject, Oscillator, Distortion } from '../src';
 
 function play(osc: AudioObject) {
   const aux = (t: number) => [osc.tf(t)];
@@ -27,8 +27,13 @@ let o = new Oscillator({
   })
 });
 
-play(o);
+const d = new Distortion({
+  signal: o,
+  threshold: 0.7
+});
+
+play(d);
 setTimeout(() => {
-  o.setFrequency(800);
+  // o.setFrequency(800);
   console.log('freq changed');
 }, 2000);
