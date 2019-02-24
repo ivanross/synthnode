@@ -29,6 +29,6 @@ let o = new Oscillator({
 
 play(o);
 setTimeout(() => {
-  o.frequency = 800;
+  o.setFrequency(800);
   console.log('freq changed');
 }, 2000);

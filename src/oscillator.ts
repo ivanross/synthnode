@@ -10,10 +10,10 @@ export type OscillatorProps = {
 };
 
 export class Oscillator implements AudioObject {
-  frequency: number;
-  amplitude: AudioObject;
-  phase: AudioObject;
-  type: OscillatorType;
+  private frequency: number;
+  private amplitude: AudioObject;
+  private phase: AudioObject;
+  private type: OscillatorType;
   constructor({
     frequency,
     phase = 0,
@@ -24,6 +24,18 @@ export class Oscillator implements AudioObject {
     this.amplitude = toAudioObject(amplitude);
     this.phase = toAudioObject(phase);
     this.type = type;
+  }
+  setFrequency(value: number) {
+    this.frequency = value;
+  }
+  setAmplitude(value: number | AudioObject) {
+    this.amplitude = toAudioObject(value);
+  }
+  setPhase(value: number | AudioObject) {
+    this.phase = toAudioObject(value);
+  }
+  setType(value: OscillatorType) {
+    this.type = value;
   }
 
   tf(t: number): number {
@@ -54,9 +66,12 @@ export class Oscillator implements AudioObject {
 }
 
 export class Noise implements AudioObject {
-  amplitude: AudioObject;
+  private amplitude: AudioObject;
   constructor(amplitude: number | AudioObject = 1) {
     this.amplitude = toAudioObject(amplitude);
+  }
+  setAmplitude(value: number) {
+    this.amplitude = toAudioObject(value);
   }
   tf(t: number): number {
     return this.amplitude.tf(t) * random() * 2 - 1;
