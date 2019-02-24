@@ -1,12 +1,14 @@
 /// <reference path="playground.d.ts" />
 const Generator = require('audio-generator');
 const Speaker = require('audio-speaker');
-import { AudioObject, Oscillator, Foldback } from '../src';
+import { AudioObject, Oscillator, Foldback, Expose } from '../src';
 
 function play(osc: AudioObject) {
   const aux = (t: number) => [osc.tf(t)];
   return new Generator(aux, { duration: Infinity }).pipe(new Speaker());
 }
+
+let a = new Expose(20);
 
 let o = new Oscillator({
   frequency: 80,
@@ -19,7 +21,7 @@ let o = new Oscillator({
   }),
   phase: new Oscillator({
     amplitude: new Oscillator({
-      amplitude: 20,
+      amplitude: a,
       frequency: 0.1
     }),
     frequency: 100
@@ -31,6 +33,9 @@ let d = new Foldback({
   threshold: 0.9
 });
 
-console.log(d);
-
 play(d);
+console.log('start playing');
+setTimeout(() => {
+  a.value = 220;
+  console.log('changing freq');
+}, 3000);
