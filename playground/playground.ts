@@ -1,39 +1,29 @@
 /// <reference path="playground.d.ts" />
 const Generator = require('audio-generator');
 const Speaker = require('audio-speaker');
-import { AudioObject, Oscillator, Distortion } from '../src';
+import { AudioObject, Add, Oscillator, Mult } from '../dist';
 
 function play(osc: AudioObject) {
   const aux = (t: number) => [osc.tf(t)];
   return new Generator(aux, { duration: Infinity }).pipe(new Speaker());
 }
 
-let o = new Oscillator({
-  type: 'sine',
-  frequency: 80,
-  amplitude: new Oscillator({
-    frequency: 2,
-    phase: new Oscillator({
-      amplitude: 10,
-      frequency: 0.5
-    })
+const f = 440;
+
+const organ = new Add([
+  new Oscillator({ frequency: f, amplitude: 0.5 }),
+  new Oscillator({ frequency: f * 2, amplitude: 0.2 }),
+  new Oscillator({
+    frequency: f * 3,
+    amplitude: 0.15,
+    phase: new Oscillator({ frequency: 7, amplitude: 1 })
   }),
-  phase: new Oscillator({
-    amplitude: new Oscillator({
-      amplitude: 20,
-      frequency: 0.1
-    }),
-    frequency: 100
+  new Oscillator({ frequency: f * 4, amplitude: 0.1 }),
+  new Oscillator({
+    frequency: f * 5,
+    amplitude: 0.55,
+    phase: new Oscillator({ frequency: 5, amplitude: 1 })
   })
-});
+]);
 
-const d = new Distortion({
-  signal: o,
-  threshold: 0.7
-});
-
-play(d);
-setTimeout(() => {
-  d.setType('overflow');
-  console.log('distortion type changed');
-}, 2000);
+play(organ);

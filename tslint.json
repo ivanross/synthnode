@@ -6,7 +6,7 @@
     "arrow-parens": false,
     "align": true,
     "semicolon": false,
-    "array-type": true,
+    "array-type": false,
     "curly": false,
     "callable-types": true,
     "class-name": true,
