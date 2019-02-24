@@ -28,8 +28,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run build && run test",
-      "pre-push": "npm run build && run test"
+      "pre-commit": "npm run build && npm test",
+      "pre-push": "npm run build && npm test"
     }
   }
 }
