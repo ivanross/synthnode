@@ -11,6 +11,7 @@ function play(osc: AudioObject) {
 let a = new Expose(20);
 
 let o = new Oscillator({
+  type: 'square',
   frequency: 80,
   amplitude: new Oscillator({
     frequency: 2,
