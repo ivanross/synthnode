@@ -1,7 +1,7 @@
 import { sum } from 'lodash';
 import { AudioObject, toAudioObject } from './audio-object';
 
-export class Add {
+export class Add implements AudioObject {
   private values: AudioObject[];
   constructor(values: (number | AudioObject)[]) {
     this.values = values.map(toAudioObject);
@@ -11,7 +11,7 @@ export class Add {
   }
 }
 
-export class Mult {
+export class Mult implements AudioObject {
   private a: AudioObject;
   private b: AudioObject;
   constructor(a: number | AudioObject, b: number | AudioObject) {
