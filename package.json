@@ -31,5 +31,9 @@
       "pre-commit": "npm run build && npm test",
       "pre-push": "npm run build && npm test"
     }
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.121",
+    "lodash": "^4.17.11"
   }
 }
