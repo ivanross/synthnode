@@ -22,7 +22,12 @@ build:
 test:
   stage: test
   script:
-    - npm run test 2>&1 | tee test.log
+    - npm test 2>&1 | tee test.log
   artifacts:
     paths:
       - test.log
+
+'code quality':
+  stage: test
+  script:
+    - npm run lint
