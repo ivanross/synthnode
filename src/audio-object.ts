@@ -1,6 +1,4 @@
-export type TimeFunc = {
-  (time: number): number;
-};
+export type TimeFunc = (time: number) => number;
 
 export interface AudioObject {
   tf: TimeFunc;
