@@ -1,6 +1,6 @@
 import 'mocha';
 import { expect } from 'chai';
-import { Oscillator, Noise } from '../dist';
+import { Oscillator } from '../dist';
 
 describe('oscillators', () => {
   it('test oscillator properties', () => {
@@ -13,12 +13,4 @@ describe('oscillators', () => {
   });
 
   it('test oscillator modif', () => {});
-});
-
-describe('noise', () => {
-  it('test noise properties', () => {
-    const n = new Noise();
-    expect(n).to.have.property('amplitude');
-    expect(n).to.have.property('tf');
-  });
 });
