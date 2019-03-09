@@ -1,5 +1,5 @@
 import { sum } from 'lodash';
-import { AudioObject, toAudioObject } from './audio-object';
+import { toAudioObject } from './audio-object';
 
 export class Add implements AudioObject {
   private values: AudioObject[];
