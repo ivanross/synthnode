@@ -2,17 +2,19 @@ import { toAudioObject } from './audio-object';
 
 export type DelayProps = {
   signal: AudioObject;
-  ms: number | AudioObject;
+  sec: number;
 };
 
 export class Delay implements AudioObject {
   private signal: AudioObject;
-  private ms: AudioObject;
-  constructor({ signal, ms }: DelayProps) {
+  private sec: number;
+  constructor({ signal, sec: sec }: DelayProps) {
     this.signal = signal;
-    this.ms = toAudioObject(ms);
+    this.sec = sec;
   }
   tf(t: number) {
-    return this.signal.tf(t - this.ms.tf(t));
+    const actualTime = t - this.sec;
+    if (actualTime < 0) return 0;
+    return this.signal.tf(actualTime);
   }
 }
