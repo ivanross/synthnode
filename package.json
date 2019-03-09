@@ -1,7 +1,7 @@
 {
-  "name": "ts-synthnode",
+  "name": "synthnode",
   "version": "0.0.3",
-  "description": "",
+  "description": "A simple javascript library for audio synthesis",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
