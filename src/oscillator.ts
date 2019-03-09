@@ -1,4 +1,4 @@
-import { toAudioObject } from './audio-object';
+import { AudioObject, toAudioObject } from './audio-object';
 const { sin, PI, asin, atan, tan } = Math;
 
 export type OscillatorType = 'sine' | 'square' | 'triangle' | 'sawthoot';
