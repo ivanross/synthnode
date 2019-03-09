@@ -6,8 +6,8 @@ stages:
 
 before_script:
   - node -v
-  - npm -v
-  - npm install
+  - yarn -v
+  - yarn
 
 cache:
   paths:
@@ -17,12 +17,12 @@ cache:
 build:
   stage: build
   script:
-    - npm run build
+    - yarn build
 
 test:
   stage: test
   script:
-    - npm test 2>&1 | tee test.log
+    - yarn test 2>&1 | tee test.log
   artifacts:
     paths:
       - test.log
@@ -30,4 +30,4 @@ test:
 'code quality':
   stage: test
   script:
-    - npm run lint
+    - yarn lint
