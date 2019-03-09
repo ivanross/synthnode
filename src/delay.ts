@@ -1,3 +1,5 @@
+import { AudioObject } from './audio-object';
+
 export type DelayProps = {
   signal: AudioObject;
   sec: number;

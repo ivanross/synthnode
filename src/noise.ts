@@ -1,4 +1,4 @@
-import { toAudioObject } from './audio-object';
+import { AudioObject, toAudioObject } from './audio-object';
 
 export class Noise implements AudioObject {
   private amplitude: AudioObject;
