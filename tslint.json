@@ -16,7 +16,7 @@
     "prefer-method-signature": true,
     "adjacent-overload-signatures": true,
     "member-access": false,
-    "max-classes-per-file": true,
+    "max-classes-per-file": false,
     "no-angle-bracket-type-assertion": false,
     "type-literal-delimiter": false,
     "quotemark": false,
@@ -25,5 +25,8 @@
     "trailing-comma": false,
     "whitespace": false
   },
-  "rulesDirectory": []
+  "rulesDirectory": [],
+  "linterOptions": {
+    "exclude": ["test/**/*.test.ts"]
+  }
 }
