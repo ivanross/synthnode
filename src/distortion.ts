@@ -1,4 +1,4 @@
-import { toAudioObject } from './audio-object';
+import { AudioObject, toAudioObject } from './audio-object';
 
 export type DistortionType = 'clip' | 'foldback' | 'overflow';
 export type DistortionProps = {
