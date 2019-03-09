@@ -2,3 +2,5 @@ src/
 test/
 playground/
 *.log
+tsconfig.json
+tslint.json
