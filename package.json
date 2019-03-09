@@ -1,9 +1,19 @@
 {
   "name": "synthnode",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "A simple javascript library for audio synthesis",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": "Ivan Rossi <ivanross.me@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ivanross/synthnode.git"
+  },
+  "bugs": {
+    "email": "https://github.com/ivanross/synthnode/issues"
+  },
+  "homepage": "https://github.com/ivanross/synthnode",
+  "license": "ISC",
   "scripts": {
     "start": "tsc -w",
     "build": "rm -rf dist/ && tsc",
@@ -11,8 +21,6 @@
     "lint": "tslint --project tsconfig.json src/**/*.ts",
     "play": "ts-node playground/playground.ts"
   },
-  "author": "Ivan Rossi",
-  "license": "ISC",
   "devDependencies": {
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
