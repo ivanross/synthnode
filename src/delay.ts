@@ -8,7 +8,7 @@ export type DelayProps = {
 export class Delay implements AudioObject {
   private signal: AudioObject;
   private sec: number;
-  constructor({ signal, sec: sec }: DelayProps) {
+  constructor({ signal, sec }: DelayProps) {
     this.signal = signal;
     this.sec = sec;
   }
