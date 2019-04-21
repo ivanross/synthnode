@@ -1,6 +1,6 @@
 {
   "name": "synthnode",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "A simple typescript library for audio synthesis",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
