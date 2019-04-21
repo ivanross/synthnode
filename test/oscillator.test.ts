@@ -14,15 +14,15 @@ describe('oscillators', () => {
 
   it('type changes', () => {
     const osc = new Oscillator({ frequency: 1 });
-    osc.setType('sawthoot');
+    osc.type('sawthoot');
     expect(() => osc.tf(0)).to.not.throw();
-    osc.setType('square');
+    osc.type('square');
     expect(() => osc.tf(0)).to.not.throw();
-    osc.setType('triangle');
+    osc.type('triangle');
     expect(() => osc.tf(0)).to.not.throw();
-    osc.setType('sine');
+    osc.type('sine');
     expect(() => osc.tf(0)).to.not.throw();
-    osc.setType('ciao' as any);
+    osc.type('ciao' as any);
     expect(() => osc.tf(0)).to.throw();
   });
 });

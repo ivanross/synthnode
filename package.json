@@ -1,7 +1,7 @@
 {
   "name": "synthnode",
   "version": "0.4.2",
-  "description": "A simple javascript library for audio synthesis",
+  "description": "A simple typescript library for audio synthesis",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Ivan Rossi <ivanross.me@gmail.com>",
@@ -21,10 +21,7 @@
     "lint": "tslint --project tsconfig.json src/**/*.ts",
     "play": "ts-node playground/playground.ts"
   },
-  "dependencies": {
-    "@types/lodash": "^4.14.123",
-    "lodash": "^4.17.11"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@synthnode/util": "^0.0.5",
     "@types/chai": "^4.1.7",
