@@ -18,10 +18,10 @@
     esutils "^2.0.2"
     js-tokens "^4.0.0"
 
-"@synthnode/util@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@synthnode/util/-/util-0.0.3.tgz#4394b2b9bd96eea61c70046292d9f102f17f207d"
-  integrity sha512-QXQHZs5jjLkCLFc9arkdtnwajsJH76o4JxoiXlg4NvO1rgx/VvUjqUHAFd1jjTTDNGb61GgvJuMGxUYeDMJH4Q==
+"@synthnode/util@^0.0.4":
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/@synthnode/util/-/util-0.0.4.tgz#d91dc3e1c6ef134524b259a87ecdde60c7c8cbc5"
+  integrity sha512-PCXMrTBZRfWYKRAnZqZwVnLkyQaDOPL5dx+Zg5miASTypwlKFZcxzYi4dwEqgdP2qp+8g+S0GtLGl63tLb9tZA==
   dependencies:
     audio-generator "^2.1.2"
     audio-speaker "^1.5.0"
@@ -1262,11 +1262,6 @@ semver-compare@^1.0.0:
   integrity sha1-De4hahyUGrN+nvsXiPavxf9VN/w=
 
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.5.0, semver@^5.7.0:
-  version "5.7.0"
-  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
-  integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
-
-semver@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.0.tgz#790a7cf6fea5459bac96110b29b60412dc8ff96b"
   integrity sha512-Ya52jSX2u7QKghxeoFGpLwCtGlt7j0oY9DYb5apt9nPlJ42ID+ulTXESnt/qAQcoSERyZ5sl3LDIOw0nAn/5DA==
