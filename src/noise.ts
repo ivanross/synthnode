@@ -16,3 +16,11 @@ export class Noise implements AudioObject {
     return this._amplitude.tf(t) * Math.random() * 2 - 1;
   }
 }
+
+export function isNoise(x: any): x is Noise {
+  return x instanceof Noise;
+}
+
+export function noise(amplitude: number | AudioObject = 1): Noise {
+  return new Noise(amplitude);
+}

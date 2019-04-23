@@ -33,3 +33,11 @@ export class Delay implements AudioObject {
     return this._signal.tf(actualTime);
   }
 }
+
+export function isDelay(x: any): x is Delay {
+  return x instanceof Delay;
+}
+
+export function delay(options: DelayOptions): Delay {
+  return new Delay(options);
+}

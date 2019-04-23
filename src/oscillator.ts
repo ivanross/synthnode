@@ -83,10 +83,10 @@ export class Oscillator implements AudioObject {
   }
 }
 
-export function oscillator(options: OscillatorOptions): Oscillator {
-  return new Oscillator(options);
-}
-
 export function isOscillator(x: any): x is Oscillator {
   return x instanceof Oscillator;
+}
+
+export function oscillator(options: OscillatorOptions): Oscillator {
+  return new Oscillator(options);
 }

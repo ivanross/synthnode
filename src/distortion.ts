@@ -59,3 +59,11 @@ export class Distortion implements AudioObject {
     throw new Error('Distortion type not recognized');
   }
 }
+
+export function isDistortion(x: any): x is Distortion {
+  return x instanceof Distortion;
+}
+
+export function distortion(options: DistortionOptions): Distortion {
+  return new Distortion(options);
+}

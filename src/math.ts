@@ -29,6 +29,14 @@ export class Add implements AudioObject {
   }
 }
 
+export function isAdd(x: any): x is Add {
+  return x instanceof Add;
+}
+
+export function add(a: number | AudioObject, b: number | AudioObject): Add {
+  return new Add(a, b);
+}
+
 export class Mult implements AudioObject {
   private _a: AudioObject;
   private _b: AudioObject;
@@ -54,4 +62,12 @@ export class Mult implements AudioObject {
   tf(t: number): number {
     return this._a.tf(t) * this._b.tf(t);
   }
+}
+
+export function isMult(x: any): x is Mult {
+  return x instanceof Add;
+}
+
+export function mult(a: number | AudioObject, b: number | AudioObject): Mult {
+  return new Mult(a, b);
 }

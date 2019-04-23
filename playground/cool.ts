@@ -1,17 +1,17 @@
-import { Oscillator, Distortion } from '../dist';
+import { oscillator, distortion } from '../dist';
 
-const o = new Oscillator({
+const o = oscillator({
   type: 'sine',
   frequency: 80,
-  amplitude: new Oscillator({
+  amplitude: oscillator({
     frequency: 2,
-    phase: new Oscillator({
+    phase: oscillator({
       amplitude: 10,
       frequency: 0.5
     })
   }),
-  phase: new Oscillator({
-    amplitude: new Oscillator({
+  phase: oscillator({
+    amplitude: oscillator({
       amplitude: 20,
       frequency: 0.1
     }),
@@ -19,7 +19,7 @@ const o = new Oscillator({
   })
 });
 
-export const cool = new Distortion({
+export const cool = distortion({
   signal: o,
   threshold: 0.7
 });
