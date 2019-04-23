@@ -22,7 +22,7 @@ describe('oscillators', () => {
     expect(() => osc.tf(0)).to.not.throw();
     osc.type('sine');
     expect(() => osc.tf(0)).to.not.throw();
-    osc.type('ciao' as any);
+    osc.type('hello world' as any);
     expect(() => osc.tf(0)).to.throw();
   });
 });
