@@ -11,6 +11,10 @@ export class Value implements AudioObject {
   }
 }
 
+export function isAudioObject(x: any): x is AudioObject {
+  return (<AudioObject>x).tf !== undefined;
+}
+
 export function toAudioObject(noa: number | AudioObject): AudioObject {
-  return (<AudioObject>noa).tf ? <AudioObject>noa : new Value(<number>noa);
+  return isAudioObject(noa) ? <AudioObject>noa : new Value(<number>noa);
 }

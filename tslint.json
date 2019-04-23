@@ -23,7 +23,8 @@
     "interface-over-type-literal": false,
     "interface-name": false,
     "trailing-comma": false,
-    "whitespace": false
+    "whitespace": false,
+    "variable-name": false
   },
   "rulesDirectory": [],
   "linterOptions": {
