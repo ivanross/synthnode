@@ -55,31 +55,31 @@ export class Oscillator implements AudioObject {
   }
 
   tf(t: number): number {
-    switch (this._type) {
-      case 'sine':
-        return (
-          this._amplitude.tf(t) *
-          sin(2 * PI * t * this._frequency + this._phase.tf(t))
-        );
-      case 'square':
-        return (
-          this._amplitude.tf(t) *
-          (sin(2 * PI * t * this._frequency + this._phase.tf(t)) > 0 ? 1 : -1)
-        );
-      case 'triangle':
-        let time = asin(sin(2 * PI * this._frequency * t + this._phase.tf(t)));
-        time /= PI / 2;
-        return time * this._amplitude.tf(t);
-      case 'sawthoot':
-        return (
-          -((2 * this._amplitude.tf(t)) / PI) *
-          atan(
-            1 / tan(t * PI * this._frequency + PI / 2 + this._phase.tf(t) / 2)
-          )
-        );
-      default:
-        throw new Error('Oscillator type not recognized');
+    if (this._type === 'sine') {
+      return (
+        this._amplitude.tf(t) *
+        sin(2 * PI * t * this._frequency + this._phase.tf(t))
+      );
     }
+    if (this._type === 'square') {
+      return (
+        this._amplitude.tf(t) *
+        (sin(2 * PI * t * this._frequency + this._phase.tf(t)) > 0 ? 1 : -1)
+      );
+    }
+    if (this._type === 'triangle') {
+      let time = asin(sin(2 * PI * this._frequency * t + this._phase.tf(t)));
+      time /= PI / 2;
+      return time * this._amplitude.tf(t);
+    }
+
+    if (this._type === 'sawthoot') {
+      return (
+        -((2 * this._amplitude.tf(t)) / PI) *
+        atan(1 / tan(t * PI * this._frequency + PI / 2 + this._phase.tf(t) / 2))
+      );
+    }
+    throw new Error('Oscillator type not recognized');
   }
 }
 
