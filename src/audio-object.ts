@@ -1,7 +1,5 @@
-export type TimeFunc = (time: number) => number;
-
 export type AudioObject = {
-  tf: TimeFunc;
+  tf(time: number): number;
 };
 
 export class Value implements AudioObject {
