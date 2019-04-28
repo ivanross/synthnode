@@ -14,12 +14,12 @@ function oscillator(options): Oscillator;
 
 **Options**:
 
-| option      | type                   | default        |
-| ----------- | ---------------------- | -------------- |
-| `frequency` | `number`               | **_required_** |
-| `amplitude` | `number | AudioObject` | `1`            |
-| `phase`     | `number | AudioObject` | `0`            |
-| `type`      | `OscillatorType`       | `sine`         |
+| option      | type                    | default        |
+| ----------- | ----------------------- | -------------- |
+| `frequency` | `number`                | **_required_** |
+| `amplitude` | `number \| AudioObject` | `1`            |
+| `phase`     | `number \| AudioObject` | `0`            |
+| `type`      | `OscillatorType`        | `sine`         |
 
 **Oscillator types**:
 
