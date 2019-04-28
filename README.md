@@ -4,35 +4,57 @@
 [![npm version](https://img.shields.io/npm/v/synthnode.svg)](https://www.npmjs.com/package/synthnode)
 [![Greenkeeper badge](https://badges.greenkeeper.io/ivanross/synthnode.svg)](https://greenkeeper.io/)
 
-`synthnode` is a simple typescript library for audio synthesis. This project is a personal experiment. The main aim is to have a flexible API.
+`synthnode` is a simple typescript library for audio synthesis. This project is a personal experiment.
 
-# Table of contents
+## Table of contents
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [Installation](#installation)
+- [Install](#install)
+- [Example](#example)
 - [Core Concepts](#core-concepts)
-  - [`AudioObject`](#audioobject)
-- [Examples](#examples)
+- [API](#api)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Installation
+## Install
 
-```
+```sh
 npm install --save synthnode
 ```
 
-or if using yarn:
+## Example
 
+```ts
+import { oscillator } from 'synthnode';
+import { mono } from '@synthnode/util';
+
+const o = oscillator({
+  frequency: 80,
+  amplitude: oscillator({
+    frequency: 2,
+    phase: oscillator({
+      frequency: 0.5
+      amplitude: 10,
+    })
+  }),
+  phase: oscillator({
+    frequency: 100
+    amplitude: oscillator({
+      frequency: 0.1
+      amplitude: 20,
+    }),
+  })
+});
+
+mono(o);
 ```
-yarn add --save synthnode
-```
 
-# Core Concepts
+## Core Concepts
 
-## `AudioObject`
+This library provides a collection of **Audio Objects**. Those can be linked to create complex nets. An Audio Object is an object with `tf` (i.e. **time-function**) method, that takes the time of execution (in seconds) as a parameter and returns a numeric value, so its signature is:
 
 ```ts
 type AudioObject = {
@@ -40,10 +62,12 @@ type AudioObject = {
 };
 ```
 
-# Examples
+Among others, `Oscillator` is an example of Audio Object. The values returned by its time-function represents audio samples. As can be seen from the [example](#example) above, multiple oscillators can be combined by passing them as contructor options.
 
-```ts
-import { oscillator, Oscillator } from 'synthnode';
+## API
 
-const o1: Oscillator = oscillator({ frequrency: 440 });
-```
+- [Oscillator](docs/api/oscillator.md)
+
+## License
+
+The MIT License (MIT)
