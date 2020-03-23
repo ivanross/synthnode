@@ -25,14 +25,14 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
-"@synthnode/util@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@synthnode/util/-/util-0.0.5.tgz#181f912a00abca6bcfb471ea24a21e19b9e075ee"
-  integrity sha512-TuIJRX3sxhO9KM9ODpHOMMZhcwyAy3gpyK38LtfQkWFJQUtjF5aNkQc7rm04ym2h0Da01/ddtzbekYzXOkCKmQ==
+"@synthnode/util@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@synthnode/util/-/util-0.0.6.tgz#9891f7c55b8ea8a64a27b04b93b39d92245027b5"
+  integrity sha512-ekE+Z6tbWKkB68grIoAZIvLGmVJYj37IHH2NwII23G7k97pI76f+detDQ3roxP5d8GPQlGVOssIxkPuNGZVU+g==
   dependencies:
     audio-generator "^2.1.2"
     audio-speaker "^1.5.0"
-    synthnode "^0.4.2"
+    synthnode "^0.4.3"
 
 "@types/chai@^4.2.11":
   version "4.2.11"
@@ -1441,7 +1441,7 @@ supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
-synthnode@^0.4.2:
+synthnode@^0.4.3:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/synthnode/-/synthnode-0.4.3.tgz#68cedae7c31c5958530cb51ba1f75184f74c0af7"
   integrity sha512-20McWSXy0xWLU1OPAG3pIYcKtsyV1wpm3vqxWoiItAFl4XuBoo7aH1KnJj3X0zfxym6kf9sZyjorGaDZEFkkQA==
