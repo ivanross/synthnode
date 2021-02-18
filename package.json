@@ -25,7 +25,7 @@
   "devDependencies": {
     "@synthnode/util": "^0.0.5",
     "@types/chai": "^4.2.11",
-    "@types/mocha": "^7.0.2",
+    "@types/mocha": "^8.2.1",
     "@types/node": "^13.9.1",
     "chai": "^4.2.0",
     "husky": "^4.2.3",
