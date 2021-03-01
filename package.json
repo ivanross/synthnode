@@ -28,7 +28,7 @@
     "@types/mocha": "^7.0.2",
     "@types/node": "^13.9.1",
     "chai": "^4.2.0",
-    "husky": "^4.2.3",
+    "husky": "^5.1.2",
     "mocha": "^7.1.0",
     "prettier": "^1.19.1",
     "pretty-quick": "^2.0.1",
